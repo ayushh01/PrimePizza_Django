@@ -16,16 +16,16 @@ def home(request):
     searchdata = response.json()
     
     recipes = searchdata['recipes']
-    posts = []
-    for k in recipes:
+    #posts = []
+    #publishers = []
+    #for k in recipes:
         #print(k['title'])
-        posts.append(k['title']) 
+        #posts.append(k['title'])
+        #publishers.append(k['publisher'])  
     
-    count = len(posts)
-    print(count)
 
-    for x in range(len(posts)): 
-        print (posts[x])   
+    #for x in range(len( posts)): 
+        #print (posts[x])   
        
     #resc = recipe[count-2]
     #print(resc)
@@ -34,7 +34,7 @@ def home(request):
     #print(recipe[2]['title'])
     
 
-    return render(request , 'customer\PrimeP.html' , { 'posts': posts , 'search':search } )
+    return render(request , 'customer\PrimeP.html' , { 'recipes': recipes , 'search':search  } )
   else:
     return render(request , 'customer\PrimeP.html')
 
