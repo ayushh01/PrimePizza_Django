@@ -35,13 +35,32 @@
 
 	<div class="container">
         <div class="search">
-        <form>
-            <input type="text" class="search-field" placeholder="Search millions of Recipe">
-            <button class="search-btn" type="button">Search</button>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" class="search-field" name="search" placeholder="Search millions of Recipe">
+            <button class="search-btn" type="submit" value="Post">Search</button>
         </form>    
         </div>
         <div class="row">
-            <div class="column left"><h1>one</h1></div>
+            
+            <div class="column left">
+                <u><h2><i>Select any of {{ search }} Dish </i></h2></u>
+                <br>
+               {% for post in posts %}
+                    <ul class="results__list">
+                    
+                        <li>
+                            <a class="results__link results__link--active" href="#23456">
+                                <div class="results__data">
+                                    <h4 class="results__name">{{ post }}</h3> 
+                                    <br>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            
+            </div>
             <div class="column middle"><h1>two</h1></div>
             <div class="column right"><h1>three</h1></div>
           </div>
